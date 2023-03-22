@@ -7,11 +7,17 @@ export default {
     }
   },
   methods: {
-    add(data) {
+    add: function (data) {
       if (data) {
         this.todos.push(data)
         this.title = ""
       }
+    },
+    remove: function (id) {
+      this.todos.splice(id, 1)
+    },
+    edit: function () {
+      alert("edited")
     }
   }
 }
@@ -34,7 +40,7 @@ import TodoItem from './TodoItem.vue'
       </button>
     </form>
     <div>
-      <TodoItem v-for="value, index  in todos" :title="value" :index="index"/>
+      <TodoItem v-for="value, index  in todos" :title="value" :index="index" :key="index" @remove="remove" @edit="edit" />
     </div>
   </div>
 </template>
