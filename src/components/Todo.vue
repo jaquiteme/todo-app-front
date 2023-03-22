@@ -22,10 +22,10 @@ export default {
         this.title = this.todos[id]
         this.editId = id
       } else {
-        console.log("Edited")
         this.todos.splice(id, 1, title)
         this.title = ""
         this.editId = -1
+        console.log("Edited")
       }
     }
   }
