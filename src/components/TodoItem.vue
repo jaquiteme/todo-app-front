@@ -1,8 +1,8 @@
 <template>
-    <li>
+    <div>
         <input type="checkbox" :checked="isChecked">
         <div>{{ title }}</div>
-    </li>
+    </div>
 </template>
 <script>
 export default {
@@ -17,7 +17,7 @@ export default {
 }
 </script>
 <style scoped>
-    li {
+    div {
         display: flex;
         justify-content: space-between;
     }
