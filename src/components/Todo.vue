@@ -3,7 +3,8 @@ export default {
   data() {
     return {
       title: "",
-      todos: []
+      todos: [],
+      editId: -1
     }
   },
   methods: {
@@ -16,8 +17,16 @@ export default {
     remove: function (id) {
       this.todos.splice(id, 1)
     },
-    edit: function () {
-      alert("edited")
+    edit: function (id, title = null) {
+      if (!title) {
+        this.title = this.todos[id]
+        this.editId = id
+      } else {
+        console.log("Edited")
+        this.todos.splice(id, 1, title)
+        this.title = ""
+        this.editId = -1
+      }
     }
   }
 }
@@ -34,9 +43,13 @@ import TodoItem from './TodoItem.vue'
       <div>
         <input class="form-control mb-2" type="text" v-model="title" />
       </div>
-      <button style="margin-left: 1rem;" class="btn btn-primary mb-2" type="submit"
+      <button v-if="editId == -1" style="margin-left: 1rem;" class="btn btn-primary mb-2" type="submit"
         @click.enter.submit.prevent="add(title)">
         Add
+      </button>
+      <button v-if="editId > -1" style="margin-left: 1rem;" class="btn btn-warning mb-2" type="submit"
+        @click.enter.submit.prevent="edit(editId, title)">
+        Edit
       </button>
     </form>
     <div>

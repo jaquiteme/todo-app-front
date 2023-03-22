@@ -3,9 +3,9 @@
         <input type="checkbox" :checked="isChecked" v-model="isChecked">
         <div style="margin-left: 1rem;" :class="[isChecked ? 'task-done' : '']">{{ title }}</div>
         <div class="action-btn" style="margin-left: 1rem;">
-            <button class="btn btn-sm" @click="$emit('edit', [index])" >Edit</button>
+            <button class="btn btn-primary btn-sm" @click="$emit('edit', [index])" >Edit</button>
             &nbsp;
-            <button @click="$emit('remove', [index])" class="btn btn-sm">Delete</button>
+            <button @click="$emit('remove', [index])" class="btn btn-danger btn-sm">Delete</button>
         </div>
     </div>
 </template>
