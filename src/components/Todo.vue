@@ -7,9 +7,11 @@ export default {
     }
   },
   methods: {
-    add(event, data) {
-      event.preventDefault()
-      this.todos.push(data)
+    add(data) {
+      if (data) {
+        this.todos.push(data)
+        this.title = ""
+      }
     }
   }
 }
@@ -26,12 +28,13 @@ import TodoItem from './TodoItem.vue'
       <div>
         <input class="form-control mb-2" type="text" v-model="title" />
       </div>
-      <button style="margin-left: 1rem;" class="btn btn-primary mb-2" type="submit" @click="add($event, title)">
+      <button style="margin-left: 1rem;" class="btn btn-primary mb-2" type="submit"
+        @click.enter.submit.prevent="add(title)">
         Add
       </button>
     </form>
     <div>
-      <TodoItem v-for="todo in todos" :title="todo" />
+      <TodoItem v-for="value, index  in todos" :title="value" :index="index"/>
     </div>
   </div>
 </template>
