@@ -9,11 +9,11 @@
 
 body {
   min-height: 100vh;
-  color: grey;
+  color: #213547;
   background: white;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: Montserrat, sans-serif;
+  font-family: "Inter var experimental", Montserrat, sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
